@@ -2,6 +2,7 @@ package com.application.internship.books.demo.service.impl;
 
 import com.application.internship.books.demo.model.Author;
 import com.application.internship.books.demo.model.Book;
+import com.application.internship.books.demo.model.enumeration.Type;
 import com.application.internship.books.demo.repository.InMemoryAuthorRepository;
 import com.application.internship.books.demo.repository.InMemoryBookRepository;
 import com.application.internship.books.demo.service.AuthorService;
@@ -27,7 +28,9 @@ public class AuthorServiceImpl implements AuthorService {
     public List<Author> authorsWithSameDecadeAsBooks() {
         Set<Integer> decadesOfBooks = new HashSet<>();
         for(Book book: this.inMemoryBookRepository.findAll()){
-            decadesOfBooks.add(book.getDecade());
+            if(book.getType().equals(Type.PRINT_COPY)){
+                decadesOfBooks.add(book.getDecade());
+            }
         }
         return this.inMemoryAuthorRepository.findAll().stream().filter(s->decadesOfBooks.contains(s.getDecade())).collect(Collectors.toList());
     }
