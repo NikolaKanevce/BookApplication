@@ -45,7 +45,7 @@ public class BookServiceTest {
         int oldSize = list.size();
         BookDto bookDto = new BookDto();
         bookDto.setName("0");
-        bookDto.setISBN("10");
+        bookDto.setISBN("15");
         bookDto.setPublishYear(0);
         bookDto.setAuthor(new Author("name", "surname", 2000));
         bookDto.setNumberOfPages(100);

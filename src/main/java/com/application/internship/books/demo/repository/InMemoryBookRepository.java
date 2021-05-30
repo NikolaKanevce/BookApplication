@@ -48,6 +48,7 @@ public class InMemoryBookRepository {
     public Optional<Book> edit(String ISBN, BookDto bookDto){
         Book changedBook;
         Book book = this.findByISBN(ISBN).orElseThrow(() -> new NoSuchBookException(ISBN));
+        DataHolder.authorBooksMap.putIfAbsent(bookDto.getAuthor(), new ArrayList<>());
         DataHolder.books.remove(book);
         if(bookDto.getType().equals(Type.E_BOOK)){
             changedBook = new EBook(bookDto.getName(), ISBN, bookDto.getPublishYear(), bookDto.getAuthor(), bookDto.getFormat(), bookDto.getSize());
@@ -57,8 +58,9 @@ public class InMemoryBookRepository {
             changedBook = new PrintBook(bookDto.getName(), ISBN, bookDto.getPublishYear(), bookDto.getAuthor(), bookDto.getNumberOfPages(), bookDto.getWeight());
             DataHolder.books.add(changedBook);
         }
+
         DataHolder.authorBooksMap.get(book.getAuthor()).removeIf(s->s.getISBN().equals(ISBN));
-        DataHolder.authorBooksMap.get(book.getAuthor()).add(changedBook);
+        DataHolder.authorBooksMap.get(bookDto.getAuthor()).add(changedBook);
         return Optional.of(changedBook);
     }
 

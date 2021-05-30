@@ -27,6 +27,7 @@ public class DataHolder {
         authors.add(new Author("Honore", "De Balzac", 1799));
         authors.add(new Author("Jules", "Verne", 1828));
         authors.add(new Author("Ivo", "Andric", 1892));
+        authors.add(new Author("No", "Name", 1939));
         for (Author author: authors) {
             authorBooksMap.put(author, new ArrayList<>());
         }
@@ -39,6 +40,10 @@ public class DataHolder {
         books.add(new PrintBook("Book6","6", 1818, authors.get(1),350, 1));
         books.add(new PrintBook("Book7","7", 1829, authors.get(1), 222, 1.5));
         books.add(new PrintBook("Book8","8", 1818, authors.get(1),350, 1));
+        books.add(new PrintBook("Book9", "9", 1930, authors.get(3), 400, 0.75));
+        books.add(new PrintBook("Book10", "10", 1930, authors.get(3), 400, 0.75));
+        books.add(new PrintBook("Book11", "11", 1930, authors.get(3), 400, 0.75));
+        books.add(new EBook("Book12", "12", 1968, authors.get(4), Format.PDF, 7));
 
         for (Book book: books){
             authorBooksMap.get(book.getAuthor()).add(book);
