@@ -47,9 +47,10 @@ public class AuthorServiceImpl implements AuthorService {
         return authors;
     }
 
-    /* If the attribute decade is not allowed in Book and Author then below is the solution I would give for this method.
+    /*
+    * If the attribute decade is not allowed in Book and Author then below is the solution I would give for this method.
     * But for more optimal algorithm I added attribute decade in both classes.
-    * */
+    */
     /*@Override
     public List<Author> authorsWithSameDecadeAsBooks() {
         Set<Author> authors = new HashSet<>();
