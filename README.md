@@ -1,8 +1,9 @@
 # BookApplication
 Spring Boot project for books.
 
-The whole application starts when class DemoApplication is runned.
-For running the tests, should be runned class BookServiceTest in the package service located in package test.
+The whole application starts when class DemoApplication is runned.<br/>
+For running the tests for BookService, should be runned class BookServiceTest in the package service located in package test.<br/>
+For running the tests for AuthorService, should be runned class AuthorServiceTest in the package service located in package test.
 
 Routes:<br />
 **/api/books** - Get all books.<br />
