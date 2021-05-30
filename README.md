@@ -17,4 +17,5 @@ Routes:<br />
 **/api/books/authorsWithSameDecadeAsBooks** - Get authors that are born in the same decade with the decade that at least one existing book is published in.<br />
 **/api/books/getAuthorsWithMoreThanThreeBooks** - Get authors that have written more than 3 books.<br />
 
-<strong>Application starts on port 8080.<strong/>
+<strong>Application starts on port 8080.<strong/><br/>
+<strong>In this project is used Java version 11.<strong/>
